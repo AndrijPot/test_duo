@@ -1,18 +1,18 @@
 book = []
 
 def add_book():
-    name_user = str(input("book name: \n" ))
-    autor = str(input("autor book : \n"))
-    price = int(input("price : \n"))
 
-    
-   # newbook.append (f"{name_user} {autor} {price} \n")
-    newbook = {
-        "title": name_user,
-        "autor": autor,
-        "price": price
-    }
-    book.append(newbook)
+        while true:
+            try:
+                name_user = str(input("book name: \n" ))
+                autor = str(input("autor book : \n"))
+                price = int(input("price : \n"))
+                
+            except ValueError:
+              continue 
+          
+            book.append(f"{name_user}-{autor} its price--{price}\n")
+
 
 def show_books():
     for i in book:
