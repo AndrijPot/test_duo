@@ -1,25 +1,34 @@
-book = []
+# Краще назвати список у множині, бо там буде багато книг
+books = []
 
 def add_book():
+    while True:
+        try:
+            name_user = input("book name: \n").strip()
+            autor = input("autor book : \n").strip()
+            price = int(input("price : \n"))
+            break
+        except ValueError:
+            # Додали повідомлення, щоб користувач розумів помилку
+            print("❌ Помилка: Введіть ціну цифрами!") 
+            continue
 
-        while true:
-            try:
-                name_user = str(input("book name: \n" ))
-                autor = str(input("autor book : \n"))
-                price = int(input("price : \n"))
-                
-            except ValueError:
-              continue 
-          
-            book.append(f"{name_user}-{autor} its price--{price}\n")
-
+    # Створюємо словник!
+    new_book = {
+        "title": name_user,
+        "author": autor,
+        "price": price
+    }
+    
+    books.append(new_book)
+    print("✅ Книгу успішно додано!\n")
 
 def show_books():
-    for i in book:
-        print(i) 
-
-
-
+    # Тепер ми дістаємо дані зі словника по ключах
+    print("\n--- СПИСОК КНИГ ---")
+    for b in books:
+        print(f"📖 {b['title']} - {b['author']} | Ціна: {b['price']} грн")
+    print("-------------------\n")
 
 
 
